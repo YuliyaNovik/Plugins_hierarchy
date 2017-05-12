@@ -62,12 +62,23 @@ namespace Plugins_hierarchy {
         }
 
         private void Items_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (Items.SelectedIndex >= 0) {
+                PagesFrame.Navigate(new Pages.View(Items.SelectedIndex, this));
+            }
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e) {
+            if (Items.SelectedIndex >= 0) {
+                PagesFrame.Navigate(new Pages.Edit(Items.SelectedIndex, this));
+            }
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e) {
+            if (Items.SelectedIndex >= 0) {
+                Model.objectList.RemoveAt(Items.SelectedIndex);
+                Model.objectTypeList.RemoveAt(Items.SelectedIndex);
+                RefreshObjectList();
+            }
         }
 
         private void BtnSerialize_Click(object sender, RoutedEventArgs e) {
