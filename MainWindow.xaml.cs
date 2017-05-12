@@ -54,6 +54,11 @@ namespace Plugins_hierarchy {
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e) {
+            try {
+                PagesFrame.Navigate(new Pages.Add(Types.SelectedIndex, this));
+            } catch {
+                MessageBox.Show("Please select item in combobox");
+            }
         }
 
         private void Items_SelectionChanged(object sender, SelectionChangedEventArgs e) {
