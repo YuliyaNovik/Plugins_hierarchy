@@ -32,13 +32,10 @@ namespace Plugins_hierarchy.Class {
 
             string className = parsedFile[0];
             string pluginName = parsedFile[2];
-            try {
-                Directory.CreateDirectory("plugin/" + className);
-                File.Copy(pathToPlgFile, "plugin/" + className + "/plugin.plg");
-                File.Copy(Path.GetDirectoryName(pathToPlgFile) + "/" + pluginName, "plugin/" + className + "/" + pluginName);
-            } catch {
-                return false;
-            }
+          
+            Directory.CreateDirectory("plugin/" + className);
+            File.Copy(pathToPlgFile, "plugin/" + className + "/plugin.plg");
+            File.Copy(Path.GetDirectoryName(pathToPlgFile) + "/" + pluginName, "plugin/" + className + "/" + pluginName);
 
             using (StreamWriter sw = new StreamWriter("plugin/info.plg", true)) {
                 sw.WriteLine("plugin/" + className + "/");

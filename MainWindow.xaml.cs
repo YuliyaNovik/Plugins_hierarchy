@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Plugins_hierarchy.Class;
+using Microsoft.Win32;
 
 namespace Plugins_hierarchy {
     public partial class MainWindow : Window {
@@ -38,6 +39,18 @@ namespace Plugins_hierarchy {
         }
 
         private void BtnInstallPlugin_Click(object sender, RoutedEventArgs e) {
+            try {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                if (openFileDialog.ShowDialog() == true) {
+                    PluginProcess.InstallPlugin(openFileDialog.FileName);
+                }
+
+                MessageBox.Show("Plugin is installed");
+                Model.pluginList = PluginProcess.LoadPlugins();
+                RefreshPluginList();
+            } catch {
+                MessageBox.Show("Plugin is installed or invalid");
+            }
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e) {
