@@ -12,17 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Plugins_hierarchy.Class;
 
 namespace Plugins_hierarchy {
     public partial class MainWindow : Window {
 
         public MainWindow() {
+            InitializeComponent();
+            Model.pluginList = PluginProcess.LoadPlugins();
+            RefreshPluginList();
         }
 
         public void RefreshObjectList() {
+            Items.ItemsSource = null;
+            Items.ItemsSource = Model.objectList;
         }
 
         public void RefreshPluginList() {
+            Types.ItemsSource = null;
+            Types.ItemsSource = Model.pluginList;
+            Model.typeList.Clear();
+            foreach (var item in Model.pluginList) {
+                Model.typeList.Add(item.CreateObject());
+            }
         }
 
         private void BtnInstallPlugin_Click(object sender, RoutedEventArgs e) {
