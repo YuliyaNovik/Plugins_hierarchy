@@ -14,12 +14,38 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Plugins_hierarchy {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window {
+
         public MainWindow() {
-            InitializeComponent();
+        }
+
+        public void RefreshObjectList() {
+        }
+
+        public void RefreshPluginList() {
+        }
+
+        private void BtnInstallPlugin_Click(object sender, RoutedEventArgs e) {
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e) {
+        }
+
+        private void Items_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e) {
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e) {
+        }
+
+        private void BtnSerialize_Click(object sender, RoutedEventArgs e) {
+        }
+
+        private void BtnDeserialize_Click(object sender, RoutedEventArgs e) {
+
+
         }
     }
 }
